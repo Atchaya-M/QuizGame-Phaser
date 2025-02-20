@@ -5,7 +5,8 @@ const cors = require("cors");
 const app = express();
 app.use(cors());
 
-mongoose.connect("mongodb+srv://atchayamohan05:rDK01GXhREvtYCRW@cluster0.y0rqs.mongodb.net/mcqDB", {
+
+mongoose.connect("mongodb+srv://yourUsername:yourPassword@yourCluster.mongodb.net/mcqDB", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
