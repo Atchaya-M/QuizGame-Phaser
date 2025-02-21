@@ -1,15 +1,19 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+require("dotenv").config();
 
 const app = express();
 app.use(cors());
 
+const mongoURI = process.env.MONGO_URI;
 
-mongoose.connect("mongodb+srv://yourUsername:yourPassword@yourCluster.mongodb.net/mcqDB", {
+mongoose.connect(mongoURI, { 
   useNewUrlParser: true,
   useUnifiedTopology: true,
-});
+})
+.then(() => console.log("MongoDB Connected!"))
+.catch(err => console.log("MongoDB Connection Error:", err));
 
 const QuestionSchema = new mongoose.Schema({
   level: Number,
